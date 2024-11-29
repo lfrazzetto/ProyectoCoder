@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Profesor</title>
+</head>
+
+<body>
+    <h1>Editar Profesor: {{ profesor.nombre }} {{ profesor.apellido }}</h1>
+    <form action="{% url 'editarProfesor' profesor.id %}" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ formulario.as_table }}
+        </table>
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    <br>
+    <a href="{% url 'leerProfesores' %}">Volver a la lista</a>
+</body>
+
+</html>
