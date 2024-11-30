@@ -10,24 +10,29 @@ from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from .forms import UserRegisterForm
+from django.contrib.auth.decorators import login_required
 
 
 def inicio(req):
     return render(req, 'appcoder/padre.html')
 
 
+@login_required
 def cursos(req):
     return render(req, 'appcoder/cursos.html')
 
 
+@login_required
 def profesores(req):
     return render(req, 'appcoder/profesores.html')
 
 
+@login_required
 def estudiantes(req):
     return render(req, 'appcoder/estudiantes.html')
 
 
+@login_required
 def entregables(req):
     return render(req, 'appcoder/entregables.html')
 

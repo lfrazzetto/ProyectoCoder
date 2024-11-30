@@ -12,6 +12,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 # Funciones para gestionar inicios de sesión y autenticación
 from django.contrib.auth import login, logout, authenticate
 from .forms import UserRegisterForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def login_request(request):
@@ -49,7 +50,7 @@ def login_request(request):
     return render(request, "AppCoder/login.html", {"form": form})
 
 
-class CursoListView(ListView):
+class CursoListView(LoginRequiredMixin, ListView):
     """
     Vista para mostrar una lista de todos los cursositos.
     """

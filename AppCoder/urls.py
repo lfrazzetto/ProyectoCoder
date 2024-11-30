@@ -3,7 +3,7 @@ from django.urls import path
 from AppCoder import views
 from AppCoder import views_clases
 from AppCoder.views_clases import CursoListView
-from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import LogoutView  # pylint: disable=import-error
 
 
 urlpatterns = [
@@ -24,8 +24,7 @@ urlpatterns = [
     path('editarProfesor/<int:id>/', views.editar_profesor, name='editarProfesor'),
     path('login/', views_clases.login_request, name="Login"),
     path('register/', views.register, name="Register"),
-    path('logout/', LogoutView.as_view(
-        template_name='AppCoder/logout.html'), name='Logout'),
+    path('logout/', LogoutView.as_view(), name="Logout"),
 ]
 
 urls_vistas_clases = [
